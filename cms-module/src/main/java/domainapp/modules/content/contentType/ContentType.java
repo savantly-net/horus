@@ -26,10 +26,10 @@ import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 
+import domainapp.modules.content.ContentModule;
 import domainapp.modules.content.dom.contentField.ContentField;
 import domainapp.modules.content.types.FieldType;
-import domainapp.modules.simple.SimpleModule;
-import domainapp.modules.simple.types.Name;
+import domainapp.modules.content.types.Name;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -48,7 +48,7 @@ public class ContentType implements Comparable<ContentType> {
 			@Name String name) {
 		return new ContentType(name);
 	}
-	public static class ActionDomainEvent extends SimpleModule.ActionDomainEvent<ContentType>{}
+	public static class ActionDomainEvent extends ContentModule.ActionDomainEvent<ContentType>{}
 	
 	@Inject RepositoryService repositoryService;
     @Inject TitleService titleService;

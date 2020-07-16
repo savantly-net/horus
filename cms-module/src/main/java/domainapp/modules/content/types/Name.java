@@ -1,4 +1,4 @@
-package domainapp.modules.simple.types;
+package domainapp.modules.content.types;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,8 +13,7 @@ import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.spec.AbstractSpecification2;
 
-import domainapp.modules.simple.SimpleModule;
-import lombok.val;
+import domainapp.modules.content.ContentModule;
 
 @Column(length = Name.MAX_LEN, allowsNull = "false")
 @Property(mustSatisfy = Name.Specification.class, maxLength = Name.MAX_LEN)
@@ -28,20 +27,10 @@ public @interface Name {
     class Specification extends AbstractSpecification2<String> {
 
         @Inject
-        private SimpleModule.Configuration configuration;
+        private ContentModule.Configuration configuration;
 
         @Override
         public TranslatableString satisfiesTranslatableSafely(final String name) {
-            if(name == null) {
-                return null;
-            }
-            val prohibitedCharacters = configuration.getTypes().getName().getValidation().getProhibitedCharacters();
-            for (char prohibitedCharacter : prohibitedCharacters) {
-                if( name.contains(""+prohibitedCharacter)) {
-                    String message = configuration.getTypes().getName().getValidation().getMessage();
-                    return TranslatableString.tr(message, "character", ""+prohibitedCharacter);
-                }
-            }
             return null;
         }
     }

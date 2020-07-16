@@ -14,7 +14,7 @@ import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.jaxbadapters.PersistentEntityAdapter;
 
 import domainapp.modules.content.contentFieldData.ContentFieldData;
-import domainapp.modules.simple.types.Name;
+import domainapp.modules.content.types.Name;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

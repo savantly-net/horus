@@ -5,10 +5,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import domainapp.modules.content.ContentModule;
-import domainapp.modules.simple.SimpleModule;
 
 @Configuration
-@Import({SimpleModule.class, ContentModule.class})
+@Import({ContentModule.class})
 @ComponentScan
 public class ApplicationModule {
 

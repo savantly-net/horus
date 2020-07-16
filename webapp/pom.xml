@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>horus-webapp</artifactId>
-    <name>Horus CMS</name>
+    <name>Horus CMS WebApp</name>
 
     <description>Assembles and runs both the Wicket viewer and the Restfulobjects viewer in a single webapp configured to run using the JDO/DataNucleus object store.</description>
 

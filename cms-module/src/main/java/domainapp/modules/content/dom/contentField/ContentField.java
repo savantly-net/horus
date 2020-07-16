@@ -20,8 +20,8 @@ import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 
+import domainapp.modules.content.ContentModule;
 import domainapp.modules.content.types.FieldType;
-import domainapp.modules.simple.SimpleModule;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -51,7 +51,7 @@ public class ContentField implements Comparable<ContentField> {
         return obj;
     }
 
-    public static class ActionDomainEvent extends SimpleModule.ActionDomainEvent<ContentField> {}
+    public static class ActionDomainEvent extends ContentModule.ActionDomainEvent<ContentField> {}
 
     @Inject RepositoryService repositoryService;
     @Inject TitleService titleService;

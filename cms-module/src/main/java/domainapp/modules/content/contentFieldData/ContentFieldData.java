@@ -12,7 +12,7 @@ import org.apache.isis.applib.jaxbadapters.PersistentEntityAdapter;
 
 import domainapp.modules.content.dom.contentField.ContentField;
 import domainapp.modules.content.dom.contentItem.ContentItem;
-import domainapp.modules.simple.types.Name;
+import domainapp.modules.content.types.Name;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
