@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.apache.isis.app</groupId>
+        <artifactId>isis-app-starter-parent</artifactId>
+        <version>2.0.0-M3</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>net.savantly.horus</groupId>
+    <artifactId>horus-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>Horus CMS Parent</name>
+
+    <packaging>pom</packaging>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- this project's own modules -->
+            <dependency>
+                <groupId>net.savantly.horus</groupId>
+                <artifactId>horus-cms-module</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.savantly.horus</groupId>
+                <artifactId>horus-cms-module</artifactId>
+                <version>${project.version}</version>
+                <scope>test</scope>
+                <type>test-jar</type>
+            </dependency>
+            <dependency>
+                <groupId>net.savantly.horus</groupId>
+                <artifactId>horus-webapp</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <modules>
+        <module>cms-module</module>
+        <module>webapp</module>
+    </modules>
+
+    <profiles>
+        <profile>
+            <id>repo-incode-cloud</id>
+            <activation>
+                <property>
+                    <name>!skip.repo-incode-cloud</name>
+                </property>
+            </activation>
+            <repositories>
+                <repository>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                        <updatePolicy>always</updatePolicy>
+                        <checksumPolicy>fail</checksumPolicy>
+                    </snapshots>
+                    <id>repo-incode-cloud</id>
+                    <name>repo.incode.cloud</name>
+                    <url>https://repo.incode.work</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+</project>
