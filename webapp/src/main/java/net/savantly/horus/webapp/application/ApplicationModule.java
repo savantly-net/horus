@@ -1,13 +1,17 @@
-package domainapp.webapp.application;
+package net.savantly.horus.webapp.application;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import domainapp.modules.content.ContentModule;
+import net.savantly.horus.modules.content.ContentModule;
+import net.savantly.horus.modules.security.HorusSecurityModule;
 
 @Configuration
-@Import({ContentModule.class})
+@Import({
+	ContentModule.class,
+	HorusSecurityModule.class
+})
 @ComponentScan
 public class ApplicationModule {
 

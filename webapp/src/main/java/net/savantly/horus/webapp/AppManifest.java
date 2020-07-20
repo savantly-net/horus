@@ -1,9 +1,12 @@
-package domainapp.webapp;
+package net.savantly.horus.webapp;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
+
+import net.savantly.horus.webapp.application.ApplicationModule;
+import net.savantly.horus.webapp.application.fixture.scenarios.DomainAppDemo;
 
 import org.apache.isis.core.config.presets.IsisPresets;
 import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
@@ -14,9 +17,6 @@ import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.h2console.ui.IsisModuleTestingH2ConsoleUi;
 import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleViewerRestfulObjectsJaxrsResteasy4;
 import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
-
-import domainapp.webapp.application.ApplicationModule;
-import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
 
 @Configuration
 @Import({

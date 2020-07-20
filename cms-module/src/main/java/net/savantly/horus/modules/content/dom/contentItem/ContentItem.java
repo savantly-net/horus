@@ -1,4 +1,4 @@
-package domainapp.modules.content.dom.contentItem;
+package net.savantly.horus.modules.content.dom.contentItem;
 
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -13,11 +13,11 @@ import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.jaxbadapters.PersistentEntityAdapter;
 
-import domainapp.modules.content.contentFieldData.ContentFieldData;
-import domainapp.modules.content.types.Name;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.savantly.horus.modules.content.dom.contentFieldData.ContentFieldData;
+import net.savantly.horus.modules.content.types.Name;
 
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE, schema = "cms")

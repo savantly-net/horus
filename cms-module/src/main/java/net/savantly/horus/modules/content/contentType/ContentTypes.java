@@ -1,4 +1,4 @@
-package domainapp.modules.content.contentType;
+package net.savantly.horus.modules.content.contentType;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.repository.RepositoryService;
 
-import domainapp.modules.content.ContentModule;
+import net.savantly.horus.modules.content.ContentModule;
 
 @DomainService(
         nature = NatureOfService.VIEW,

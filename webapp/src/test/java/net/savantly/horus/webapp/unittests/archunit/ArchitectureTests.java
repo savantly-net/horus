@@ -1,4 +1,4 @@
-package domainapp.webapp.unittests.archunit;
+package net.savantly.horus.webapp.unittests.archunit;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
@@ -16,8 +16,8 @@ import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
 
-import domainapp.modules.content.ContentModule;
-import domainapp.webapp.SimpleApp;
+import net.savantly.horus.modules.content.ContentModule;
+import net.savantly.horus.webapp.SimpleApp;
 
 @AnalyzeClasses(
         packagesOf = {ContentModule.class, SimpleApp.class},
@@ -29,8 +29,8 @@ public class ArchitectureTests {
     @ArchTest
     static ArchRule package_dependencies =
             layeredArchitecture()
-                    .layer("content module").definedBy("domainapp.modules.content..")
-                    .layer("webapp").definedBy("domainapp.webapp..")
+                    .layer("content module").definedBy("net.savantly.horus.modules.content..")
+                    .layer("webapp").definedBy("net.savantly.horus.webapp..")
             .whereLayer("content module").mayOnlyBeAccessedByLayers("webapp");
 
     @ArchTest

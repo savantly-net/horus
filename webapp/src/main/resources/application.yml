@@ -41,18 +41,18 @@ isis:
   viewer:
     wicket:
       application:
-        about: Elevate
-        brand-logo-header: images/logo.png
+        about: Savantly Horus powered by Apache Isis
+        brand-logo-header: images/eye-of-horus_white.svg
         css: css/application.css
-        favicon-url: images/logo.png
+        favicon-url: images/favicon.png
         js: scripts/application.js
-        name: Elevate
+        name: Horus
         menubars-layout-xml: menubars.layout.xml
 
       credit:
-        - url:  https://www.sigmatechnicalgroup.com/
-          image: images/logo.png
-          name: Sigma Technical Group
+        - url:  https://savantly.net/
+          #image: images/savantly.png
+          name: Savantly.net
 
       themes:
         show-chooser: true

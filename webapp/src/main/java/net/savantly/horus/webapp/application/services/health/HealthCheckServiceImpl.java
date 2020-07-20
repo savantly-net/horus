@@ -1,4 +1,4 @@
-package domainapp.webapp.application.services.health;
+package net.savantly.horus.webapp.application.services.health;
 
 import javax.inject.Named;
 

@@ -1,4 +1,4 @@
-package domainapp.modules.content.contentType;
+package net.savantly.horus.modules.content.contentType;
 
 import java.util.Comparator;
 import java.util.SortedSet;
@@ -26,13 +26,13 @@ import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 
-import domainapp.modules.content.ContentModule;
-import domainapp.modules.content.dom.contentField.ContentField;
-import domainapp.modules.content.types.FieldType;
-import domainapp.modules.content.types.Name;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.savantly.horus.modules.content.ContentModule;
+import net.savantly.horus.modules.content.dom.contentField.ContentField;
+import net.savantly.horus.modules.content.types.FieldType;
+import net.savantly.horus.modules.content.types.Name;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE, schema = "cms")
 @javax.jdo.annotations.DatastoreIdentity(strategy=IdGeneratorStrategy.IDENTITY, column="id")

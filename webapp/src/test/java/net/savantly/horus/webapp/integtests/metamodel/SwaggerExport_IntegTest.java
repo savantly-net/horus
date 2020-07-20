@@ -1,4 +1,4 @@
-package domainapp.webapp.integtests.metamodel;
+package net.savantly.horus.webapp.integtests.metamodel;
 
 import java.io.IOException;
 
@@ -14,8 +14,7 @@ import org.apache.isis.testing.integtestsupport.applib.validate.DomainModelValid
 import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleViewerRestfulObjectsJaxrsResteasy4;
 
 import lombok.val;
-
-import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
+import net.savantly.horus.webapp.integtests.ApplicationIntegTestAbstract;
 
 @SpringBootTest(
         classes = {

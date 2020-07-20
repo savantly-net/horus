@@ -1,14 +1,14 @@
-package domainapp.webapp.application.fixture;
+package net.savantly.horus.webapp.application.fixture;
 
 import org.springframework.stereotype.Service;
+
+import net.savantly.horus.webapp.application.fixture.scenarios.DomainAppDemo;
 
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScripts;
 import org.apache.isis.testing.fixtures.applib.fixturespec.FixtureScriptsSpecification;
 import org.apache.isis.testing.fixtures.applib.fixturespec.FixtureScriptsSpecificationProvider;
-
-import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
 
 /**
  * Specifies where to find fixtures, and other settings.

@@ -1,15 +1,15 @@
-package domainapp.webapp.integtests.metamodel;
+package net.savantly.horus.webapp.integtests.metamodel;
 
 import javax.inject.Inject;
 
 import org.junit.jupiter.api.Test;
 
+import net.savantly.horus.webapp.integtests.ApplicationIntegTestAbstract;
+
 import org.apache.isis.applib.services.inject.ServiceInjector;
 import org.apache.isis.applib.services.registry.ServiceRegistry;
 import org.apache.isis.testing.integtestsupport.applib.validate.DomainModelValidator;
 import org.apache.isis.core.metamodel.specloader.SpecificationLoader;
-
-import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
 
 class ValidateDomainModel_IntegTest extends ApplicationIntegTestAbstract {
     

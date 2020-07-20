@@ -1,4 +1,4 @@
-package domainapp.modules.content.contentFieldData;
+package net.savantly.horus.modules.content.dom.contentFieldData;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
@@ -10,12 +10,12 @@ import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.jaxbadapters.PersistentEntityAdapter;
 
-import domainapp.modules.content.dom.contentField.ContentField;
-import domainapp.modules.content.dom.contentItem.ContentItem;
-import domainapp.modules.content.types.Name;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import net.savantly.horus.modules.content.dom.contentField.ContentField;
+import net.savantly.horus.modules.content.dom.contentItem.ContentItem;
+import net.savantly.horus.modules.content.types.Name;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE, schema = "cms")
 @javax.jdo.annotations.DatastoreIdentity(strategy=IdGeneratorStrategy.IDENTITY, column="id")

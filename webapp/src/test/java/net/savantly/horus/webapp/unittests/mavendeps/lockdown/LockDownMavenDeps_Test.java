@@ -1,6 +1,4 @@
-package domainapp.webapp.unittests.mavendeps.lockdown;
-
-import domainapp.webapp.util.CurrentVsApprovedApprovalTextWriter;
+package net.savantly.horus.webapp.unittests.mavendeps.lockdown;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,6 +14,8 @@ import org.junit.jupiter.api.Test;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
+
+import net.savantly.horus.webapp.util.CurrentVsApprovedApprovalTextWriter;
 
 import static org.approvaltests.Approvals.getReporter;
 import static org.approvaltests.Approvals.verify;

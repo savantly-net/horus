@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<mml:domainClassDto id="domainapp.webapp.application.services.homepage.HomePageViewModel" xmlns:mml="http://isis.apache.org/schema/metamodel">
+<mml:domainClassDto id="net.savantly.horus.webapp.application.services.homepage.HomePageViewModel" xmlns:mml="http://isis.apache.org/schema/metamodel">
     <mml:facets>
         <mml:facet id="org.apache.isis.core.metamodel.authorization.standard.AuthorizationFacet" fqcn="org.apache.isis.core.metamodel.authorization.standard.AuthorizationFacetImpl">
             <mml:attr name="disabling">true</mml:attr>
@@ -59,7 +59,7 @@
         <mml:facet id="org.apache.isis.core.metamodel.facets.object.publishedobject.PublishedObjectFacet" fqcn="org.apache.isis.core.metamodel.facets.object.domainobject.publishing.PublishedObjectFacetForDomainObjectAnnotationAsConfigured"/>
         <mml:facet id="org.apache.isis.core.metamodel.facets.object.title.TitleFacet" fqcn="org.apache.isis.core.metamodel.facets.object.title.methods.TitleFacetViaTitleMethod">
             <mml:attr name="intent.title">UI_HINT</mml:attr>
-            <mml:attr name="methods">public org.apache.isis.applib.services.i18n.TranslatableString domainapp.webapp.application.services.homepage.HomePageViewModel.title()</mml:attr>
+            <mml:attr name="methods">public org.apache.isis.applib.services.i18n.TranslatableString net.savantly.horus.webapp.application.services.homepage.HomePageViewModel.title()</mml:attr>
         </mml:facet>
         <mml:facet id="org.apache.isis.core.metamodel.facets.object.viewmodel.ViewModelFacet" fqcn="org.apache.isis.core.metamodel.facets.object.domainobject.recreatable.RecreatableObjectFacetForDomainObjectAnnotation">
             <mml:attr name="recreationMechanism">INITIALIZES</mml:attr>
@@ -107,7 +107,7 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.describedas.DescribedAsFacet" fqcn="org.apache.isis.core.metamodel.facets.members.describedas.annotprop.DescribedAsFacetOnMemberDerivedFromType"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.named.NamedFacet" fqcn="org.apache.isis.core.metamodel.facets.all.i18n.NamedFacetTranslated">
-                    <mml:attr name="context">domainapp.webapp.application.services.homepage.HomePageViewModel#objectIdentifier()</mml:attr>
+                    <mml:attr name="context">net.savantly.horus.webapp.application.services.homepage.HomePageViewModel#objectIdentifier()</mml:attr>
                     <mml:attr name="originalText">Object Identifier</mml:attr>
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.all.named.NamedFacetInferred</mml:attr>
                 </mml:facet>
@@ -188,7 +188,7 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.describedas.DescribedAsFacet" fqcn="org.apache.isis.core.metamodel.facets.members.describedas.annotprop.DescribedAsFacetOnMemberDerivedFromType"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.named.NamedFacet" fqcn="org.apache.isis.core.metamodel.facets.all.i18n.NamedFacetTranslated">
-                    <mml:attr name="context">domainapp.webapp.application.services.homepage.HomePageViewModel#objectType()</mml:attr>
+                    <mml:attr name="context">net.savantly.horus.webapp.application.services.homepage.HomePageViewModel#objectType()</mml:attr>
                     <mml:attr name="originalText">Object Type</mml:attr>
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.all.named.NamedFacetInferred</mml:attr>
                 </mml:facet>
@@ -241,7 +241,7 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.describedas.DescribedAsFacet" fqcn="org.apache.isis.core.metamodel.facets.members.describedas.annotprop.DescribedAsFacetOnMemberDerivedFromType"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.named.NamedFacet" fqcn="org.apache.isis.core.metamodel.facets.all.i18n.NamedFacetTranslated">
-                    <mml:attr name="context">domainapp.webapp.application.services.homepage.HomePageViewModel#objects</mml:attr>
+                    <mml:attr name="context">net.savantly.horus.webapp.application.services.homepage.HomePageViewModel#objects</mml:attr>
                     <mml:attr name="originalText">Objects</mml:attr>
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.fallback.NamedFacetDefault</mml:attr>
                 </mml:facet>
@@ -263,7 +263,7 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.collections.modify.CollectionClearFacet" fqcn="org.apache.isis.core.metamodel.facets.collections.clear.CollectionClearFacetViaAccessor">
                     <mml:attr name="intent.getObjects">ACCESSOR</mml:attr>
-                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.so.SimpleObject&gt; domainapp.webapp.application.services.homepage.HomePageViewModel.getObjects()</mml:attr>
+                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.so.SimpleObject&gt; net.savantly.horus.webapp.application.services.homepage.HomePageViewModel.getObjects()</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.collections.modify.CollectionRemoveFromFacet" fqcn="org.apache.isis.core.metamodel.facets.collections.collection.modify.CollectionRemoveFromFacetForDomainEventFromDefault">
                     <mml:attr name="collectionRemoveFromFacet">org.apache.isis.core.metamodel.facets.collections.modify.CollectionRemoveFromFacetViaAccessor</mml:attr>
@@ -292,8 +292,8 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.propcoll.accessor.PropertyOrCollectionAccessorFacet" fqcn="org.apache.isis.core.metamodel.facets.collections.accessor.CollectionAccessorFacetViaAccessor">
                     <mml:attr name="intent.getObjects">ACCESSOR</mml:attr>
-                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.so.SimpleObject&gt; domainapp.webapp.application.services.homepage.HomePageViewModel.getObjects()</mml:attr>
-                    <mml:attr name="onType">domainapp.webapp.application.services.homepage.HomePageViewModel</mml:attr>
+                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.so.SimpleObject&gt; net.savantly.horus.webapp.application.services.homepage.HomePageViewModel.getObjects()</mml:attr>
+                    <mml:attr name="onType">net.savantly.horus.webapp.application.services.homepage.HomePageViewModel</mml:attr>
                 </mml:facet>
             </mml:facets>
             <mml:type>domainapp.modules.simple.dom.so.SimpleObject</mml:type>
@@ -345,7 +345,7 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.describedas.DescribedAsFacet" fqcn="org.apache.isis.core.metamodel.facets.members.describedas.annotprop.DescribedAsFacetOnMemberDerivedFromType"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.named.NamedFacet" fqcn="org.apache.isis.core.metamodel.facets.all.i18n.NamedFacetTranslated">
-                    <mml:attr name="context">domainapp.webapp.application.services.homepage.HomePageViewModel#downloadLayoutXml()</mml:attr>
+                    <mml:attr name="context">net.savantly.horus.webapp.application.services.homepage.HomePageViewModel#downloadLayoutXml()</mml:attr>
                     <mml:attr name="originalText">Download Layout Xml</mml:attr>
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.all.named.NamedFacetInferred</mml:attr>
                 </mml:facet>
@@ -472,7 +472,7 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.describedas.DescribedAsFacet" fqcn="org.apache.isis.core.metamodel.facets.members.describedas.annotprop.DescribedAsFacetOnMemberDerivedFromType"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.named.NamedFacet" fqcn="org.apache.isis.core.metamodel.facets.all.i18n.NamedFacetTranslated">
-                    <mml:attr name="context">domainapp.webapp.application.services.homepage.HomePageViewModel#downloadMetaModelXml()</mml:attr>
+                    <mml:attr name="context">net.savantly.horus.webapp.application.services.homepage.HomePageViewModel#downloadMetaModelXml()</mml:attr>
                     <mml:attr name="originalText">Download Meta Model Xml</mml:attr>
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.all.named.NamedFacetInferred</mml:attr>
                 </mml:facet>
@@ -575,7 +575,7 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.describedas.DescribedAsFacet" fqcn="org.apache.isis.core.metamodel.facets.members.describedas.annotprop.DescribedAsFacetOnMemberDerivedFromType"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.named.NamedFacet" fqcn="org.apache.isis.core.metamodel.facets.all.i18n.NamedFacetTranslated">
-                    <mml:attr name="context">domainapp.webapp.application.services.homepage.HomePageViewModel#openRestApi()</mml:attr>
+                    <mml:attr name="context">net.savantly.horus.webapp.application.services.homepage.HomePageViewModel#openRestApi()</mml:attr>
                     <mml:attr name="originalText">Open Rest Api</mml:attr>
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.all.named.NamedFacetInferred</mml:attr>
                 </mml:facet>
@@ -648,7 +648,7 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.describedas.DescribedAsFacet" fqcn="org.apache.isis.core.metamodel.facets.members.describedas.annotprop.DescribedAsFacetOnMemberDerivedFromType"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.named.NamedFacet" fqcn="org.apache.isis.core.metamodel.facets.all.i18n.NamedFacetTranslated">
-                    <mml:attr name="context">domainapp.webapp.application.services.homepage.HomePageViewModel#rebuildMetamodel()</mml:attr>
+                    <mml:attr name="context">net.savantly.horus.webapp.application.services.homepage.HomePageViewModel#rebuildMetamodel()</mml:attr>
                     <mml:attr name="originalText">Rebuild Metamodel</mml:attr>
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.all.named.NamedFacetInferred</mml:attr>
                 </mml:facet>

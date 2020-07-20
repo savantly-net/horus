@@ -1,4 +1,4 @@
-package domainapp.modules.content.types;
+package net.savantly.horus.modules.content.types;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -13,7 +13,7 @@ import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.spec.AbstractSpecification2;
 
-import domainapp.modules.content.ContentModule;
+import net.savantly.horus.modules.content.ContentModule;
 
 @Column(length = Name.MAX_LEN, allowsNull = "false")
 @Property(mustSatisfy = Name.Specification.class, maxLength = Name.MAX_LEN)
@@ -22,7 +22,7 @@ import domainapp.modules.content.ContentModule;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Name {
 
-    int MAX_LEN = 40;
+    int MAX_LEN = 80;
 
     class Specification extends AbstractSpecification2<String> {
 

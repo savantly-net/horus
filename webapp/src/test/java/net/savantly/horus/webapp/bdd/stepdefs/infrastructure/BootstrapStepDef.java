@@ -1,4 +1,4 @@
-package domainapp.webapp.bdd.stepdefs.infrastructure;
+package net.savantly.horus.webapp.bdd.stepdefs.infrastructure;
 
 import javax.inject.Inject;
 
@@ -8,8 +8,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 import org.apache.isis.applib.annotation.OrderPrecedence;
 
 import lombok.val;
-
-import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
+import net.savantly.horus.webapp.integtests.ApplicationIntegTestAbstract;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 

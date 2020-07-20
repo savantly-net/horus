@@ -1,4 +1,4 @@
-package domainapp.webapp.application.services.homepage;
+package net.savantly.horus.webapp.application.services.homepage;
 
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;

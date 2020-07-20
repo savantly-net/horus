@@ -1,4 +1,4 @@
-package domainapp.webapp.util;
+package net.savantly.horus.webapp.util;
 
 import java.io.File;
 

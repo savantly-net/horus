@@ -1,4 +1,4 @@
-package domainapp.webapp.integtests.metamodel.lockdown;
+package net.savantly.horus.webapp.integtests.metamodel.lockdown;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,9 @@ import org.approvaltests.reporters.UseReporter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import net.savantly.horus.webapp.integtests.ApplicationIntegTestAbstract;
+import net.savantly.horus.webapp.util.CurrentVsApprovedApprovalTextWriter;
+
 import org.apache.isis.applib.services.jaxb.JaxbService;
 import org.apache.isis.applib.services.metamodel.MetaModelService;
 import org.apache.isis.schema.metamodel.v2.DomainClassDto;
@@ -22,9 +25,6 @@ import static org.approvaltests.Approvals.verify;
 import static org.assertj.core.api.Assumptions.assumeThat;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
-
-import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
-import domainapp.webapp.util.CurrentVsApprovedApprovalTextWriter;
 
 class LockDownMetaModel_IntegTest extends ApplicationIntegTestAbstract {
 

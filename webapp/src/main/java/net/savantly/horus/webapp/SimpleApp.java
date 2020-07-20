@@ -1,4 +1,4 @@
-package domainapp.webapp;
+package net.savantly.horus.webapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

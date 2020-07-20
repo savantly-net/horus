@@ -1,4 +1,4 @@
-package domainapp.webapp.bdd.stepdefs.fixtures;
+package net.savantly.horus.webapp.bdd.stepdefs.fixtures;
 
 import javax.inject.Inject;
 
@@ -8,8 +8,8 @@ import static org.junit.Assert.assertThat;
 import org.apache.isis.applib.annotation.OrderPrecedence;
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScripts;
 
-import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
 import io.cucumber.java.Before;
+import net.savantly.horus.webapp.application.fixture.scenarios.DomainAppDemo;
 
 public class DomainAppDemoStepDef {
 

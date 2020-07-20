@@ -1,4 +1,4 @@
-package domainapp.webapp.bdd;
+package net.savantly.horus.webapp.bdd;
 
 import io.cucumber.junit.platform.engine.Cucumber;
 

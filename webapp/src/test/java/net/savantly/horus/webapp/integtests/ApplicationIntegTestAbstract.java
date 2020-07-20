@@ -1,6 +1,4 @@
-package domainapp.webapp.integtests;
-
-import domainapp.webapp.application.ApplicationModule;
+package net.savantly.horus.webapp.integtests;
 
 import org.apache.isis.core.config.presets.IsisPresets;
 import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
@@ -14,6 +12,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
+
+import net.savantly.horus.webapp.application.ApplicationModule;
 
 @SpringBootTest(
         classes = ApplicationIntegTestAbstract.AppManifest.class

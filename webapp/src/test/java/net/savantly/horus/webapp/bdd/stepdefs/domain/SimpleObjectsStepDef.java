@@ -1,4 +1,4 @@
-package domainapp.webapp.bdd.stepdefs.domain;
+package net.savantly.horus.webapp.bdd.stepdefs.domain;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -10,10 +10,10 @@ import javax.inject.Inject;
 
 import org.apache.isis.applib.services.wrapper.WrapperFactory;
 
-import domainapp.modules.content.contentType.ContentType;
-import domainapp.modules.content.contentType.ContentTypes;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import net.savantly.horus.modules.content.contentType.ContentType;
+import net.savantly.horus.modules.content.contentType.ContentTypes;
 
 public class SimpleObjectsStepDef {
 

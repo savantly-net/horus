@@ -1,4 +1,4 @@
-package domainapp.modules.content.types;
+package net.savantly.horus.modules.content.types;
 
 public enum FieldType {
 	TEXT_LINE,

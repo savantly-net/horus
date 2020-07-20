@@ -1,4 +1,4 @@
-package domainapp.webapp.integtests.smoke;
+package net.savantly.horus.webapp.integtests.smoke;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -10,9 +10,9 @@ import org.apache.isis.applib.services.xactn.TransactionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.transaction.annotation.Transactional;
 
-import domainapp.modules.content.contentType.ContentType;
-import domainapp.modules.content.contentType.ContentTypes;
-import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
+import net.savantly.horus.modules.content.contentType.ContentType;
+import net.savantly.horus.modules.content.contentType.ContentTypes;
+import net.savantly.horus.webapp.integtests.ApplicationIntegTestAbstract;
 
 @Transactional
 class Smoke_IntegTest extends ApplicationIntegTestAbstract {

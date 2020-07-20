@@ -1,4 +1,4 @@
-package domainapp.modules.content;
+package net.savantly.horus.modules.content;
 
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
 import org.apache.isis.testing.fixtures.applib.modules.ModuleWithFixtures;
@@ -9,11 +9,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 import org.springframework.validation.annotation.Validated;
 
-import domainapp.modules.content.contentFieldData.ContentFieldData;
-import domainapp.modules.content.contentType.ContentType;
-import domainapp.modules.content.dom.contentField.ContentField;
-import domainapp.modules.content.dom.contentItem.ContentItem;
 import lombok.Data;
+import net.savantly.horus.modules.content.contentType.ContentType;
+import net.savantly.horus.modules.content.dom.contentField.ContentField;
+import net.savantly.horus.modules.content.dom.contentFieldData.ContentFieldData;
+import net.savantly.horus.modules.content.dom.contentItem.ContentItem;
 
 @org.springframework.context.annotation.Configuration
 @Import({})
@@ -45,7 +45,7 @@ public class ContentModule implements ModuleWithFixtures {
     public static class ActionDomainEvent<S>
             extends org.apache.isis.applib.events.domain.ActionDomainEvent<S> {}
 
-    @ConfigurationProperties("app.content-module")
+    @ConfigurationProperties("horus.modules.content")
     @Data
     @Validated
     public static class Configuration {

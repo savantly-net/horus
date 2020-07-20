@@ -1,11 +1,11 @@
-package domainapp.webapp.application.fixture.scenarios;
+package net.savantly.horus.webapp.application.fixture.scenarios;
 
 import javax.inject.Inject;
 
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
 import org.apache.isis.testing.fixtures.applib.modules.ModuleWithFixturesService;
 
-import domainapp.modules.content.fixture.contentType.ContentType_persona;
+import net.savantly.horus.modules.content.fixture.contentType.ContentType_persona;
 
 public class DomainAppDemo extends FixtureScript {
 
