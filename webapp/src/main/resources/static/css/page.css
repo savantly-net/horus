@@ -1,5 +1,5 @@
 body {
-    background-color: #1A467B;
+    background-color: #FFF;
     font-family: Verdana, Helvetica, Arial, serif;
     font-size: 90%;
 }
@@ -24,4 +24,14 @@ th, td {
     width: 900px;
     margin: 8px auto;
     padding: 12px;
+}
+
+.logo {
+	text-align: center;
+}
+
+.logo img {
+	width: 50vw;
+	max-width: 700px;
+	min-width: 250px;
 }

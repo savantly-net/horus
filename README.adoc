@@ -1,12 +1,10 @@
-= SimpleApp
+image:https://github.com/savantly-net/horus/workflows/Java%20CI%20with%20Maven/badge.svg[Java CI with Maven]
+
+= Horus CMS
 :toc:
 
-This is a simple link:http://isis.apache.org[Apache Isis] application, structured so it can be used as a starting point for developing your own applications.
-
-[TIP]
-====
-If all you want is get a feel for what the framework is all about, then take a look at the link:https://github.com/apache/isis-app-helloworld[HelloWorld] starter app, which is even simpler.
-====
+This is a CMS built using link:http://isis.apache.org[Apache Isis] framework.  
+The built-in wicket UI can be used to perform back-office tasks, but a custom end-user interface should be developed to consume/create content items.
 
 
 == Quick start
@@ -15,18 +13,6 @@ If all you want is get a feel for what the framework is all about, then take a l
 
 ** Java 8 LTS (eg link:https://adoptopenjdk.net/[Adopt OpenJDK] distribution)
 ** Maven 3.6 or later (http://maven.apache.org/download.cgi[download])
-* download and unzip
-+
-[source,bash]
-----
-APP=simpleapp
-BRANCH=master
-
-REPO=isis-app-$APP
-curl "https://codeload.github.com/apache/$REPO/zip/$BRANCH" | jar xv
-mv $REPO-$BRANCH $REPO
-cd $REPO
-----
 
 * Build using Maven:
 +
@@ -46,8 +32,8 @@ mvn -pl webapp spring-boot:run
 
 * Login to using:
 
-** username: `sven`
-** password: `pass`
+** username: `admin`
+** password: `password`
 
 The app runs with H2 running in-memory, with sample data set up using fixture scripts.
 
@@ -61,14 +47,10 @@ The following table explains the contents of each of the directories:
 |Directory
 |Description
 
-|`module-simple`
-|Holds the "simple" module, consisting of the `SimpleObject` entity and supporting services.
+|`module-cms`
+|Holds the "cms" module, consisting of the `ContentType` and `ContentItem` entities and supporting entities/services.
 It also contains module-specific unit- and integration tests.
 
-[TIP]
-====
-Larger applications should consist of multiple modules; each such module can be copied from this starter module.
-====
 
 |`webapp`
 |Holds the bootstrapping classes, along with application-level scoped services and home page.
@@ -87,7 +69,7 @@ Normally this is done as part of a "mvn clean install", but the entities can als
 
 [source,bash]
 ----
-mvn -pl module-simple datanucleus:enhance -o
+mvn -pl module-cms datanucleus:enhance -o
 ----
 
 This is useful to know if the application or integration test fails to bootstrap, complaining of "unenhanced entities".
