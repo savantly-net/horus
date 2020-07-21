@@ -6,8 +6,8 @@ import org.apache.isis.testing.fixtures.applib.api.PersonaWithFinder;
 import org.apache.isis.testing.fixtures.applib.setup.PersonaEnumPersistAll;
 
 import lombok.AllArgsConstructor;
-import net.savantly.horus.modules.content.contentType.ContentType;
-import net.savantly.horus.modules.content.contentType.ContentTypes;
+import net.savantly.horus.modules.content.dom.contentType.ContentType;
+import net.savantly.horus.modules.content.dom.contentType.ContentTypes;
 
 
 @AllArgsConstructor

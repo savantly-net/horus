@@ -1,4 +1,4 @@
-package net.savantly.horus.modules.content.contentType;
+package net.savantly.horus.modules.content.dom.contentType;
 
 import java.util.List;
 

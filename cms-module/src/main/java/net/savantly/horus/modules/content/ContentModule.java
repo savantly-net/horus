@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Import;
 import org.springframework.validation.annotation.Validated;
 
 import lombok.Data;
-import net.savantly.horus.modules.content.contentType.ContentType;
 import net.savantly.horus.modules.content.dom.contentField.ContentField;
 import net.savantly.horus.modules.content.dom.contentFieldData.ContentFieldData;
 import net.savantly.horus.modules.content.dom.contentItem.ContentItem;
+import net.savantly.horus.modules.content.dom.contentType.ContentType;
 
 @org.springframework.context.annotation.Configuration
 @Import({})

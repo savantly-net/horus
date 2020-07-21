@@ -7,8 +7,8 @@ import org.apache.isis.testing.fixtures.applib.fixturescripts.BuilderScriptWithR
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import net.savantly.horus.modules.content.contentType.ContentType;
-import net.savantly.horus.modules.content.contentType.ContentTypes;
+import net.savantly.horus.modules.content.dom.contentType.ContentType;
+import net.savantly.horus.modules.content.dom.contentType.ContentTypes;
 
 @Accessors(chain = true)
 public class ContentTypeBuilder extends BuilderScriptWithResult<ContentType> {

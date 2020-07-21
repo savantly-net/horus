@@ -83,6 +83,11 @@
 
     <dependencies>
     
+    	<dependency>
+	        <groupId>net.savantly.horus</groupId>
+	        <artifactId>horus-security-api</artifactId>
+    	</dependency>
+    
 		<dependency>
 		  <groupId>net.bytebuddy</groupId>
 		  <artifactId>byte-buddy</artifactId>
@@ -104,6 +109,12 @@
             <groupId>org.apache.isis.testing</groupId>
             <artifactId>isis-testing-fixtures-applib</artifactId>
         </dependency>
+        
+		<dependency>
+		  <groupId>org.apache.isis.extensions</groupId>
+		  <artifactId>isis-extensions-secman-api</artifactId>
+          <version>${isisVersion}</version>
+		</dependency>
 
         <!-- TESTS -->
         <dependency>

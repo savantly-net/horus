@@ -1,7 +1,7 @@
 package net.savantly.horus.modules.security;
 
 import org.apache.isis.extensions.secman.api.SecurityModuleConfig;
-import org.apache.isis.extensions.secman.api.permission.PermissionsEvaluationServiceAllowBeatsVeto;
+import org.apache.isis.extensions.secman.api.permission.PermissionsEvaluationServiceVetoBeatsAllow;
 import org.apache.isis.extensions.secman.encryption.jbcrypt.IsisModuleExtSecmanEncryptionJbcrypt;
 import org.apache.isis.extensions.secman.jdo.IsisModuleExtSecmanPersistenceJdo;
 import org.apache.isis.extensions.secman.model.IsisModuleExtSecmanModel;
@@ -41,8 +41,8 @@ public class HorusSecurityModule {
     }
 	
 	@Bean
-	public PermissionsEvaluationServiceAllowBeatsVeto permissionsEvaluator() {
-		return new PermissionsEvaluationServiceAllowBeatsVeto();
+	public PermissionsEvaluationServiceVetoBeatsAllow permissionsEvaluator() {
+		return new PermissionsEvaluationServiceVetoBeatsAllow();
 	}
 	
 }

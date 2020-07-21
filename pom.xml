@@ -18,6 +18,10 @@
 
     <packaging>pom</packaging>
     
+    <properties>
+    	<isisVersion>2.0.0-M3</isisVersion>
+    </properties>
+    
     <scm>
 		<url>https://github.com/savantly-net/horus</url>
 		<connection>scm:git:https://github.com/savantly-net/horus.git</connection>
@@ -61,6 +65,11 @@
             </dependency>
             <dependency>
                 <groupId>net.savantly.horus</groupId>
+                <artifactId>horus-security-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.savantly.horus</groupId>
                 <artifactId>horus-cms-module</artifactId>
                 <version>${project.version}</version>
                 <scope>test</scope>
@@ -86,6 +95,7 @@
     <modules>
         <module>cms-module</module>
         <module>security-module</module>
+        <module>security-api</module>
         <module>webapp</module>
     </modules>
 

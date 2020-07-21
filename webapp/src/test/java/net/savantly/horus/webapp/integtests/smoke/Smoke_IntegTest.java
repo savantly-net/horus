@@ -10,8 +10,8 @@ import org.apache.isis.applib.services.xactn.TransactionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.transaction.annotation.Transactional;
 
-import net.savantly.horus.modules.content.contentType.ContentType;
-import net.savantly.horus.modules.content.contentType.ContentTypes;
+import net.savantly.horus.modules.content.dom.contentType.ContentType;
+import net.savantly.horus.modules.content.dom.contentType.ContentTypes;
 import net.savantly.horus.webapp.integtests.ApplicationIntegTestAbstract;
 
 @Transactional

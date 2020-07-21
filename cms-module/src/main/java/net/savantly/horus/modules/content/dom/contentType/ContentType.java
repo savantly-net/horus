@@ -1,4 +1,4 @@
-package net.savantly.horus.modules.content.contentType;
+package net.savantly.horus.modules.content.dom.contentType;
 
 import java.util.Comparator;
 import java.util.SortedSet;
@@ -66,6 +66,17 @@ public class ContentType implements Comparable<ContentType> {
 	@Collection
 	@Getter @Setter
 	private SortedSet<ContentField> fields = new TreeSet<>();
+    @MemberOrder(sequence = "0")
+    @Action(associateWith = "fields", semantics = SemanticsOf.NON_IDEMPOTENT)
+    @ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL)
+    public ContentType createField(
+    		@Parameter final String name, 
+    		@Parameter final FieldType fieldType) {
+    	ContentField item = ContentField.withFields(name, fieldType);
+    	this.addField(item);
+        repositoryService.persist(item);
+        return this;
+    }
     @MemberOrder(sequence = "1")
     @Action(associateWith = "fields", semantics = SemanticsOf.NON_IDEMPOTENT)
     @ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL)
@@ -78,17 +89,6 @@ public class ContentType implements Comparable<ContentType> {
     @ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL)
     public ContentType removeField(final ContentField field) {
     	getFields().remove(field);
-        return this;
-    }
-    @MemberOrder(sequence = "0")
-    @Action(associateWith = "fields", semantics = SemanticsOf.NON_IDEMPOTENT)
-    @ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL)
-    public ContentType createField(
-    		@Parameter final String name, 
-    		@Parameter final FieldType fieldType) {
-    	ContentField item = ContentField.withFields(name, fieldType);
-    	this.addField(item);
-        repositoryService.persist(item);
         return this;
     }
 	
@@ -109,5 +109,4 @@ public class ContentType implements Comparable<ContentType> {
     public int compareTo(final ContentType other) {
         return comparator.compare(this, other);
     }
-	
 }

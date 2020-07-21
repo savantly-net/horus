@@ -12,8 +12,8 @@ import org.apache.isis.applib.services.wrapper.WrapperFactory;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import net.savantly.horus.modules.content.contentType.ContentType;
-import net.savantly.horus.modules.content.contentType.ContentTypes;
+import net.savantly.horus.modules.content.dom.contentType.ContentType;
+import net.savantly.horus.modules.content.dom.contentType.ContentTypes;
 
 public class SimpleObjectsStepDef {
 
