@@ -89,16 +89,16 @@ resteasy:
     app:
       registration: beans
     defaultPath: "/restful"
+  authentication:
+    strategy-class-name: org.apache.isis.viewer.restfulobjects.viewer.webmodule.auth.AuthenticationSessionStrategyDefault
 
 spring:
   banner:
     location: banner.txt
 
-app:
-  simple-module:
-    types:
-      name:
-        validation:
-          message: "'{character}' is invalid."
-          prohibited-characters: "&%$!"
+horus:
+  modules:
+    security:
+      admin-username: admin
+      admin-password: pass
 

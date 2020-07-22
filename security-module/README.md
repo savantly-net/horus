@@ -1,6 +1,6 @@
 # Horus Security Module  
 
-This is a simple module that provides defaults for Isis Secman extension  
+This is a simple module that provides defaults for Isis Secman extension, and provides a REST login feature.  
 
 Import the security module into your web app's config [`HorusSecurityModule.class`]  
 
