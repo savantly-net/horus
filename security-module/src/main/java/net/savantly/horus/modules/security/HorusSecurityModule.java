@@ -1,6 +1,10 @@
 package net.savantly.horus.modules.security;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.apache.isis.extensions.secman.api.SecurityModuleConfig;
+import org.apache.isis.extensions.secman.api.SecurityModuleConfig.SecurityModuleConfigBuilder;
 import org.apache.isis.extensions.secman.api.permission.PermissionsEvaluationServiceVetoBeatsAllow;
 import org.apache.isis.extensions.secman.encryption.jbcrypt.IsisModuleExtSecmanEncryptionJbcrypt;
 import org.apache.isis.extensions.secman.jdo.IsisModuleExtSecmanPersistenceJdo;
@@ -26,18 +30,27 @@ import lombok.Setter;
 @ComponentScan
 @ConfigurationProperties("horus.modules.security")
 public class HorusSecurityModule {
+	
+	List<String> defaultAdminPackagePermissions = Arrays.asList(
+		"domainapp",
+		"net.savantly.horus",
+		"org.apache.isis.testing"
+	);
 
 	@Getter @Setter
 	private @NonNull String adminUsername = "admin";
 	@Getter @Setter
 	private @NonNull String adminPassword = "password";
+	@Getter @Setter
+	private @NonNull List<String> adminPackagePermissions = defaultAdminPackagePermissions;
 
 	@Bean
     public SecurityModuleConfig securityModuleConfigBean() {
-        return SecurityModuleConfig.builder()
+        SecurityModuleConfigBuilder builder = SecurityModuleConfig.builder()
         		.adminUserName(adminUsername)
         		.adminPassword(adminPassword)
-                .build();
+        		.adminAdditionalPackagePermissions(adminPackagePermissions);
+        return builder.build();
     }
 	
 	@Bean
