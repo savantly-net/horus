@@ -100,5 +100,5 @@ horus:
   modules:
     security:
       admin-username: admin
-      admin-password: pass
+      admin-password: password
 
