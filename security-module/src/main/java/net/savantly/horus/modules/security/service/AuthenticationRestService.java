@@ -2,6 +2,7 @@ package net.savantly.horus.modules.security.service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,9 +11,6 @@ import org.apache.isis.core.security.authentication.AuthenticationRequestPasswor
 import org.apache.isis.core.security.authentication.AuthenticationSession;
 import org.apache.isis.core.security.authentication.manager.AuthenticationManager;
 import org.apache.isis.viewer.restfulobjects.viewer.webmodule.auth.AuthenticationSessionStrategyDefault;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.subject.Subject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,23 +33,22 @@ public class AuthenticationRestService extends AuthenticationSessionStrategyDefa
 		
 		Map<String, Object> response = new HashMap<String, Object>();
 		
-		Subject currentUser = SecurityUtils.getSubject();
+		AuthenticationSession authSession = this.lookupValid(httpServletRequest, httpServletResponse);
 		
-		if ( !currentUser.isAuthenticated() ) {
-		    UsernamePasswordToken token = new UsernamePasswordToken(request.getUsername(), request.getPassword());
-		    token.setRememberMe(true);
+		if ( Objects.isNull(authSession) ) {
 		    try {
 		    	AuthenticationManager authManager = getAuthenticationManager(httpServletRequest);
-		    	// 
-		    	AuthenticationSession authSession = authManager.authenticate(new AuthenticationRequestPassword(request.getUsername(), request.getPassword()));
+		    	authSession = authManager.authenticate(new AuthenticationRequestPassword(request.getUsername(), request.getPassword()));
+		    	if( Objects.isNull(authSession) ) {
+			    	response.put("error", "authentication failed");
+			    	return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+		    	}
 				bind(httpServletRequest, httpServletResponse, authSession);
-				
-		    	//currentUser.login(token);
 		    	response.put("message", "signed in");
 		    	return ResponseEntity.ok(response);
 		    } catch (Exception ex) {
 		    	response.put("error", ex.getLocalizedMessage());
-		    	return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+		    	return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
 		    }
 		} else {
 			response.put("message", "already signed in");
@@ -59,6 +56,13 @@ public class AuthenticationRestService extends AuthenticationSessionStrategyDefa
 		}
 	}
 
+	@PostMapping
+	@RequestMapping("/signout")
+	public void signOut(@RequestBody final SignInRequest request, 
+			HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+		
+		this.invalidate(httpServletRequest, httpServletResponse);
+	}
 
 	static class SignInRequest {
 		@Getter @Setter @NonNull String username;
