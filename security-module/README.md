@@ -71,10 +71,10 @@ Pass a json object containing the username and password of the user
 { "username": "user", "password: "pass" }
 ```
 
-To make it work with the Restful Objects Viewer, use the default authentication strategy -   
+To make it work with the Restful Objects Viewer, use the MixedAuthenticationStrategy -   
 
 ```
 resteasy:
   authentication:
-    strategy-class-name: org.apache.isis.viewer.restfulobjects.viewer.webmodule.auth.AuthenticationSessionStrategyDefault
+    strategy-class-name: net.savantly.horus.modules.security.strategy.MixedAuthenticationStrategy
 ```

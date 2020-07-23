@@ -90,7 +90,7 @@ resteasy:
       registration: beans
     defaultPath: "/restful"
   authentication:
-    strategy-class-name: org.apache.isis.viewer.restfulobjects.viewer.webmodule.auth.AuthenticationSessionStrategyDefault
+    strategy-class-name: net.savantly.horus.modules.security.strategy.MixedAuthenticationStrategy
 
 spring:
   banner:

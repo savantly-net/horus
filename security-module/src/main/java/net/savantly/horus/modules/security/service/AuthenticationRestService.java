@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.isis.core.security.authentication.AuthenticationRequestPassword;
 import org.apache.isis.core.security.authentication.AuthenticationSession;
 import org.apache.isis.core.security.authentication.manager.AuthenticationManager;
-import org.apache.isis.viewer.restfulobjects.viewer.webmodule.auth.AuthenticationSessionStrategyDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,15 +20,18 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import net.savantly.horus.modules.security.strategy.MixedAuthenticationStrategy;
 
 @RestController
 @RequestMapping("/security")
-public class AuthenticationRestService extends AuthenticationSessionStrategyDefault {
+public class AuthenticationRestService extends MixedAuthenticationStrategy {
+
 
 	@PostMapping
 	@RequestMapping("/signin")
 	public ResponseEntity<Map<String, Object>> signIn(@RequestBody final SignInRequest request, 
 			HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+		
 		
 		Map<String, Object> response = new HashMap<String, Object>();
 		

@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class CookiesInterceptor extends HandlerInterceptorAdapter {
-
+	
 	final String sameSiteAttribute = "; SameSite=None";
 	final String secureAttribute = "; Secure";
 
@@ -21,7 +21,7 @@ public class CookiesInterceptor extends HandlerInterceptorAdapter {
 
 		Collection<String> setCookieHeaders = response.getHeaders(HttpHeaders.SET_COOKIE);
 
-		if (setCookieHeaders == null || setCookieHeaders.isEmpty())
+		if (setCookieHeaders == null || setCookieHeaders.isEmpty() || !request.isSecure())
 			return;
 
 		setCookieHeaders.stream().filter(h -> !StringUtils.isEmpty(h)).map(header -> {
