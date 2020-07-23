@@ -14,7 +14,7 @@ public class CookieSerializerConfig {
 		serializer.setCookieName("JSESSIONID"); 
 		serializer.setCookiePath("/"); 
 		serializer.setDomainNamePattern("^.+?\\.(\\w+\\.[a-z]+)$"); 
-		serializer.setSameSite("Lax");
+		serializer.setSameSite("none");
 		return serializer;
 	}
 
