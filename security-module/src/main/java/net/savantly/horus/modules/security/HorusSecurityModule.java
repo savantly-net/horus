@@ -34,7 +34,7 @@ public class HorusSecurityModule {
 	List<String> defaultAdminPackagePermissions = Arrays.asList(
 		"domainapp",
 		"net.savantly.horus",
-		"org.apache.isis.testing"
+		"org.apache.isis"
 	);
 
 	@Getter @Setter
@@ -57,5 +57,4 @@ public class HorusSecurityModule {
 	public PermissionsEvaluationServiceVetoBeatsAllow permissionsEvaluator() {
 		return new PermissionsEvaluationServiceVetoBeatsAllow();
 	}
-	
 }
