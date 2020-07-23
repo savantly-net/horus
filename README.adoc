@@ -6,6 +6,7 @@ image:https://github.com/savantly-net/horus/workflows/Java%20CI%20with%20Maven/b
 This is a CMS built using link:http://isis.apache.org[Apache Isis] framework.  
 The built-in wicket UI can be used to perform back-office tasks, but a custom end-user interface should be developed to consume/create content items.
 
+[Demo Site] https://horus-cms.herokuapp.com/  
 
 == Quick start
 
