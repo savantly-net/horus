@@ -3,7 +3,7 @@ import { Dropdown } from 'react-bootstrap';
 
 class Navbar extends Component {
   toggleOffcanvas() {
-    document.querySelector('.sidebar-offcanvas').classList.toggle('active');
+    document.querySelector('.sidebar-offcanvas')?.classList.toggle('active');
   }
   render () { 
     return (
@@ -21,17 +21,17 @@ class Navbar extends Component {
           <ul className="navbar-nav navbar-nav-right ml-lg-auto">
             <li className="nav-item  nav-profile border-0">
               <Dropdown alignRight>
-                <Dropdown.Toggle className="nav-link count-indicator p-0 toggle-arrow-hide bg-transparent">
+                <Dropdown.Toggle id="notificationDropdownToggle" className="nav-link count-indicator p-0 toggle-arrow-hide bg-transparent">
                   <i className="mdi mdi-bell-outline"></i>
                   <span className="count bg-success">3</span>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="navbar-dropdown preview-list">
-                  <Dropdown.Item className="dropdown-item  d-flex align-items-center" href="!#" onClick={evt =>evt.preventDefault()}>
+                  <Dropdown.Item className="dropdown-item  d-flex align-items-center" href="!#" onClick={(evt:any) =>evt.preventDefault()}>
                     <p className="mb-0 font-weight-medium float-left">Example Notifications </p>
                     <span className="badge badge-pill badge-primary float-right">View all</span>
                   </Dropdown.Item>
                   <div className="dropdown-divider"></div>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center" href="!#" onClick={evt =>evt.preventDefault()}>
+                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center" href="!#" onClick={(evt:any) =>evt.preventDefault()}>
                     <div className="preview-thumbnail">
                       <img src={require("../../assets/images/favicon.png")} alt="profile" className="img-sm profile-pic" /> </div>
                     <div className="preview-item-content flex-grow py-2">
@@ -40,7 +40,7 @@ class Navbar extends Component {
                     </div>
                   </Dropdown.Item>
                   <div className="dropdown-divider"></div>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center" href="!#" onClick={evt =>evt.preventDefault()}>
+                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center" href="!#" onClick={(evt:any) =>evt.preventDefault()}>
                     <div className="preview-thumbnail">
                       <img src={require("../../assets/images/favicon.png")} alt="profile" className="img-sm profile-pic" /> </div>
                     <div className="preview-item-content flex-grow py-2">
@@ -49,7 +49,7 @@ class Navbar extends Component {
                     </div>
                   </Dropdown.Item>
                   <div className="dropdown-divider"></div>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center" href="!#" onClick={evt =>evt.preventDefault()}>
+                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center" href="!#" onClick={(evt:any) =>evt.preventDefault()}>
                     <div className="preview-thumbnail">
                       <img src={require("../../assets/images/favicon.png")} alt="profile" className="img-sm profile-pic" /> </div>
                     <div className="preview-item-content flex-grow py-2">
