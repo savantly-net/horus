@@ -35,7 +35,7 @@ public class ContentFields {
 
     public static class CreateActionDomainEvent extends ActionDomainEvent {}
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT, domainEvent = CreateActionDomainEvent.class)
-    @ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL)
+    @ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL, named = "Create Content Field")
     public ContentField create(
     		@Parameter final String name, 
     		@Parameter final FieldType fieldType) {
@@ -44,13 +44,13 @@ public class ContentFields {
     }
     
     @Action(semantics = SemanticsOf.SAFE)
-    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "List All Content Fields")
     public List<ContentField> listAll() {
         return repositoryService.allInstances(ContentField.class);
     }
     
     @Action(semantics = SemanticsOf.SAFE)
-	@ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+	@ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Find Content Field by ID")
 	public ContentField findById(String id) {
 		try {
 		return isisJdoSupport.getJdoPersistenceManager().getObjectById(ContentField.class, id);

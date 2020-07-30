@@ -34,20 +34,20 @@ public class ContentTypes {
 	public static class CreateActionDomainEvent extends ActionDomainEvent {}
 
 	@Action(semantics = SemanticsOf.NON_IDEMPOTENT, domainEvent = CreateActionDomainEvent.class)
-	@ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL)
+	@ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL, named = "Create Content Type")
 	public ContentType create(String name) {
 		ContentType item = ContentType.withFields(name);
 	    return repositoryService.persist(item);
 	}
 	
 	@Action(semantics = SemanticsOf.SAFE)
-	@ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+	@ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "List All Content Types")
 	public List<ContentType> listAll() {
 	    return repositoryService.allInstances(ContentType.class);
 	}
 	
 	@Action(semantics = SemanticsOf.SAFE)
-	@ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+	@ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Find Content Type by ID")
 	public ContentType findById(String id) {
 		try {
 		return isisJdoSupport.getJdoPersistenceManager().getObjectById(ContentType.class, id);

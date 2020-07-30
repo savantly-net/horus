@@ -32,20 +32,20 @@ public class ContentItems {
 
     public static class CreateActionDomainEvent extends ActionDomainEvent {}
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT, domainEvent = CreateActionDomainEvent.class)
-    @ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL)
+    @ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL, named = "Create Content Item")
     public ContentItem create(final String name, final ContentType contentType) {
     	ContentItem item = ContentItem.withFields(name, contentType);
         return repositoryService.persist(item);
     }
     
     @Action(semantics = SemanticsOf.SAFE)
-    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+    @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "List All Content Items")
     public List<ContentItem> listAll() {
         return repositoryService.allInstances(ContentItem.class);
     }
     
     @Action(semantics = SemanticsOf.SAFE)
-	@ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+	@ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, named = "Find Content Item by ID")
 	public ContentItem findById(String id) {
 		try {
 		return isisJdoSupport.getJdoPersistenceManager().getObjectById(ContentItem.class, id);
@@ -53,12 +53,5 @@ public class ContentItems {
 			return null;
 		}
 	}
-
-    @Action(semantics = SemanticsOf.SAFE)
-	@ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-	public void clobTest(Clob data) {
-		
-	}
-
 
 }
