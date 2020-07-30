@@ -5,6 +5,7 @@ import java.util.Base64;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,15 +14,19 @@ import org.apache.isis.core.commons.internal.base._Strings;
 import org.apache.isis.core.security.authentication.AuthenticationRequestPassword;
 import org.apache.isis.core.security.authentication.AuthenticationSession;
 import org.apache.isis.viewer.restfulobjects.viewer.webmodule.auth.AuthenticationSessionStrategyDefault;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import lombok.val;
+import net.savantly.horus.modules.security.config.HorusSecurityConfigurationProperties;
 
 public class MixedAuthenticationStrategy extends AuthenticationSessionStrategyDefault {
 
+	private HorusSecurityConfigurationProperties horusSecurityConfiguration;
     public static final String HEADER_AUTHORIZATION = "Authorization";
     public static final String BASIC_AUTH_PREFIX = "Basic ";
 
     private static Pattern USER_AND_PASSWORD_REGEX = Pattern.compile("^(.+):(.+)$");
+    
 	
 	@Override
 	public AuthenticationSession lookupValid(HttpServletRequest httpServletRequest,
@@ -29,8 +34,33 @@ public class MixedAuthenticationStrategy extends AuthenticationSessionStrategyDe
 		if (isBasicAuth(httpServletRequest)) {
 			return basicAuthAuthenticate(httpServletRequest, httpServletResponse);
 		} else {
-			return super.lookupValid(httpServletRequest, httpServletResponse);
+			AuthenticationSession session = super.lookupValid(httpServletRequest, httpServletResponse);
+			if (Objects.nonNull(session)) {
+				return session;
+			} else {
+				return anonymousSession(httpServletRequest);
+			}
 		}
+	}
+	
+	private HorusSecurityConfigurationProperties getSecurityConfiguration(ServletRequest servletRequest) {
+
+		if(Objects.isNull(this.horusSecurityConfiguration)) {
+	        val servletContext = getServletContext(servletRequest);
+	        val webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);
+	        this.horusSecurityConfiguration = webApplicationContext.getBean(HorusSecurityConfigurationProperties.class);
+		}
+		return this.horusSecurityConfiguration;
+	}
+
+	private AuthenticationSession anonymousSession(HttpServletRequest httpServletRequest) {
+		val user = getSecurityConfiguration(httpServletRequest).getAnonymousUsername();
+        val password = getSecurityConfiguration(httpServletRequest).getAnonymousPassword();
+
+        val authenticationRequestPwd = new AuthenticationRequestPassword(user, password);
+        val authenticationManager = super.getAuthenticationManager(httpServletRequest);
+        val authenticationSession = authenticationManager.authenticate(authenticationRequestPwd);
+        return authenticationSession;
 	}
 
 	private AuthenticationSession basicAuthAuthenticate(HttpServletRequest httpServletRequest,
@@ -39,9 +69,9 @@ public class MixedAuthenticationStrategy extends AuthenticationSessionStrategyDe
         // Basic auth should never create sessions! 
         // However, telling this Shiro here, is a fragile approach.
         //TODO[2156] do this somewhere else (more coupled with shiro)
-        httpServletRequest.setAttribute(
-                "org.apache.shiro.subject.support.DefaultSubjectContext.SESSION_CREATION_ENABLED", 
-                Boolean.FALSE);
+        //httpServletRequest.setAttribute(
+        //        "org.apache.shiro.subject.support.DefaultSubjectContext.SESSION_CREATION_ENABLED", 
+        //        Boolean.FALSE);
 
         
         val digest = getBasicAuthDigest(httpServletRequest);
@@ -67,9 +97,6 @@ public class MixedAuthenticationStrategy extends AuthenticationSessionStrategyDe
 	private boolean isBasicAuth(HttpServletRequest httpServletRequest) {
 		return Objects.nonNull(getBasicAuthDigest(httpServletRequest));
 	}
-	
-	
-    // -- HELPER
     
     // value should be in the form:
     // Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==

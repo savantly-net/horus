@@ -21,7 +21,7 @@ public class ContentTypeBuilder extends BuilderScriptWithResult<ContentType> {
         
         checkParam("name", ec, String.class);
         
-        return wrap(simpleObjects).createContentType(name);
+        return wrap(simpleObjects).create(name);
     }
     
     // -- DEPENDENCIES

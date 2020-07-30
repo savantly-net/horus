@@ -1,8 +1,5 @@
 package net.savantly.horus.modules.security;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.apache.isis.extensions.secman.api.SecurityModuleConfig;
 import org.apache.isis.extensions.secman.api.SecurityModuleConfig.SecurityModuleConfigBuilder;
 import org.apache.isis.extensions.secman.api.permission.PermissionsEvaluationServiceVetoBeatsAllow;
@@ -10,14 +7,11 @@ import org.apache.isis.extensions.secman.encryption.jbcrypt.IsisModuleExtSecmanE
 import org.apache.isis.extensions.secman.jdo.IsisModuleExtSecmanPersistenceJdo;
 import org.apache.isis.extensions.secman.model.IsisModuleExtSecmanModel;
 import org.apache.isis.extensions.secman.shiro.IsisModuleExtSecmanRealmShiro;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Import;
 
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import net.savantly.horus.modules.security.config.HorusSecurityConfigurationProperties;
 
 @org.springframework.context.annotation.Configuration
 @Import({
@@ -28,28 +22,20 @@ import lombok.Setter;
     IsisModuleExtSecmanEncryptionJbcrypt.class
 })
 @ComponentScan
-@ConfigurationProperties("horus.modules.security")
 public class HorusSecurityModule {
 	
-	List<String> defaultAdminPackagePermissions = Arrays.asList(
-		"domainapp",
-		"net.savantly.horus",
-		"org.apache.isis"
-	);
-
-	@Getter @Setter
-	private @NonNull String adminUsername = "admin";
-	@Getter @Setter
-	private @NonNull String adminPassword = "password";
-	@Getter @Setter
-	private @NonNull List<String> adminPackagePermissions = defaultAdminPackagePermissions;
+	private final HorusSecurityConfigurationProperties horusSecurityConfiguration;
+	
+	public HorusSecurityModule(HorusSecurityConfigurationProperties horusSecurityConfiguration) {
+		this.horusSecurityConfiguration = horusSecurityConfiguration;
+	}
 
 	@Bean
     public SecurityModuleConfig securityModuleConfigBean() {
         SecurityModuleConfigBuilder builder = SecurityModuleConfig.builder()
-        		.adminUserName(adminUsername)
-        		.adminPassword(adminPassword)
-        		.adminAdditionalPackagePermissions(adminPackagePermissions);
+        		.adminUserName(horusSecurityConfiguration.getAdminUsername())
+        		.adminPassword(horusSecurityConfiguration.getAdminPassword())
+        		.adminAdditionalPackagePermissions(horusSecurityConfiguration.getAdminPackagePermissions());
         return builder.build();
     }
 	

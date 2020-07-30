@@ -19,13 +19,13 @@ public class SimpleObjectsStepDef {
 
     @Given("^there (?:is|are).* (\\d+) simple object[s]?$")
     public void there_are_N_simple_objects(int n) {
-        final List<ContentType> list = wrap(simpleObjects).listAllContentTypes();
+        final List<ContentType> list = wrap(simpleObjects).listAll();
         assertThat(list.size(), is(n));
     }
 
     @When("^.*create (?:a|another) .*simple object$")
     public void create_a_simple_object() {
-        wrap(simpleObjects).createContentType(UUID.randomUUID().toString());
+        wrap(simpleObjects).create(UUID.randomUUID().toString());
     }
 
     <T> T wrap(T domainObject) {

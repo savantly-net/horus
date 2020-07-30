@@ -7,6 +7,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
+import org.apache.isis.applib.annotation.Editing;
+import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.jaxbadapters.PersistentEntityAdapter;
 
@@ -25,9 +27,9 @@ import net.savantly.horus.modules.content.types.Name;
 @DomainObjectLayout()
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
-public class ContentFieldData {
+public class ContentFieldData implements Comparable<ContentFieldData> {
 
-	public static ContentFieldData withFields(ContentField contentField, ContentItem contentItem, byte[] data) {
+	public static ContentFieldData withFields(ContentField contentField, ContentItem contentItem, String data) {
 		return new ContentFieldData(contentField, contentItem, data);
 	}
 	
@@ -41,12 +43,19 @@ public class ContentFieldData {
 	@Getter
 	private ContentItem contentItem;
 
+	@Property(editing = Editing.ENABLED)
 	@Getter @Setter
-	private byte[] data;
+	private String data;
 	
-	private ContentFieldData(ContentField contentField, ContentItem contentItem, byte[] data) {
+	private ContentFieldData(ContentField contentField, ContentItem contentItem, String data) {
 		this.contentField = contentField;
 		this.contentItem = contentItem;
 		this.setData(data);
+	}
+	
+	@Override
+	public int compareTo(ContentFieldData o) {
+		// TODO Implement actual sorting
+		return 0;
 	}
 }

@@ -28,7 +28,7 @@ implements PersonaWithBuilderScript<ContentTypeBuilder>, PersonaWithFinder<Conte
     @Override
     public ContentType findUsing(final ServiceRegistry serviceRegistry) {
     	ContentTypes simpleObjects = serviceRegistry.lookupService(ContentTypes.class).orElse(null);
-        return simpleObjects.listAllContentTypes().stream().filter(o->o.getName().contentEquals(name)).findFirst().get();
+        return simpleObjects.listAll().stream().filter(o->o.getName().contentEquals(name)).findFirst().get();
     }
 
     public static class PersistAll

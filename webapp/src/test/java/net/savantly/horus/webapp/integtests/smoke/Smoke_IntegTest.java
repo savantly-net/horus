@@ -24,28 +24,28 @@ class Smoke_IntegTest extends ApplicationIntegTestAbstract {
     void happy_case() {
 
         // when
-        List<ContentType> all = wrap(menu).listAllContentTypes();
+        List<ContentType> all = wrap(menu).listAll();
 
         // then
         assertThat(all).isEmpty();
 
 
         // when
-        final ContentType fred = wrap(menu).createContentType("fred");
+        final ContentType fred = wrap(menu).create("fred");
         transactionService.flushTransaction();
 
         // then
-        all = wrap(menu).listAllContentTypes();
+        all = wrap(menu).listAll();
         assertThat(all).hasSize(1);
         assertThat(all).contains(fred);
 
 
         // when
-        final ContentType bill = wrap(menu).createContentType("Bill");
+        final ContentType bill = wrap(menu).create("Bill");
         transactionService.flushTransaction();
 
         // then
-        all = wrap(menu).listAllContentTypes();
+        all = wrap(menu).listAll();
         assertThat(all).hasSize(2);
         assertThat(all).contains(fred, bill);
 

@@ -12,8 +12,11 @@ import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.repository.RepositoryService;
+import org.apache.isis.applib.value.Clob;
+import org.apache.isis.persistence.jdo.applib.services.IsisJdoSupport_v3_2;
 
 import net.savantly.horus.modules.content.ContentModule;
+import net.savantly.horus.modules.content.dom.contentType.ContentType;
 
 @DomainService(
         nature = NatureOfService.VIEW,
@@ -23,21 +26,39 @@ import net.savantly.horus.modules.content.ContentModule;
 public class ContentItems {
 	
 	private final RepositoryService repositoryService;
+	@Inject private IsisJdoSupport_v3_2 isisJdoSupport;
 
     public static class ActionDomainEvent extends ContentModule.ActionDomainEvent<ContentItem> {}
 
     public static class CreateActionDomainEvent extends ActionDomainEvent {}
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT, domainEvent = CreateActionDomainEvent.class)
     @ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL)
-    public ContentItem createContentItem(final String name) {
-    	ContentItem item = ContentItem.withFields(name);
+    public ContentItem create(final String name, final ContentType contentType) {
+    	ContentItem item = ContentItem.withFields(name, contentType);
         return repositoryService.persist(item);
     }
     
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
-    public List<ContentItem> listAllContentItems() {
+    public List<ContentItem> listAll() {
         return repositoryService.allInstances(ContentItem.class);
     }
+    
+    @Action(semantics = SemanticsOf.SAFE)
+	@ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+	public ContentItem findById(String id) {
+		try {
+		return isisJdoSupport.getJdoPersistenceManager().getObjectById(ContentItem.class, id);
+		} catch (Exception ex) {
+			return null;
+		}
+	}
+
+    @Action(semantics = SemanticsOf.SAFE)
+	@ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
+	public void clobTest(Clob data) {
+		
+	}
+
 
 }
